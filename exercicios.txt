@@ -1,0 +1,97 @@
+Execicios BD Musicas
+
+1)Quantos clientes estão cadastrados?
+MariaDB [exemplo_musica]> select count(login) from clientes;
++--------------+
+| count(login) |
++--------------+
+|            3 |
++--------------+
+1 row in set (0.008 sec)
+
+2)Quais os artistas que estão no sistema?
+ select nome from artistas;
++----------------------+
+| nome                 |
++----------------------+
+| Alicia Keys          |
+| Anitta               |
+| Descemer Bueno       |
+| Enrique Iglesias     |
+| Farruko              |
+| Gente de Zona        |
+| Joca Martins         |
+| José Cláudio Machado |
+| Lennox               |
+| Luis Fonsi           |
+| Luiz Marenco         |
+| Maluma               |
+| Mano Lima            |
+| MC Créu              |
+| Mettallica           |
+| Nicky Jam            |
+| Pedro Capó           |
+| Shakira              |
+| Zion                 |
++----------------------+
+19 rows in set (0.008 sec)
+
+3)Quais são os planos, valores e limites de downloads que estão no sistema?
+MariaDB [exemplo_musica]> select descricao,valor,limite from planos;
++-----------+-------+--------+
+| descricao | valor | limite |
++-----------+-------+--------+
+| Light     | 29.99 |    100 |
+| Sem nome  | 39.99 |    500 |
+| Full      | 49.99 | 999999 |
++-----------+-------+--------+
+3 rows in set (0.000 sec)
+
+4)Liste todos os artistas  que tenham a inicial "A"
+MariaDB [exemplo_musica]> select * from artistas where nome like 'A%';
++----+-------------+---------------+---------------------+---------------------+
+| id | nome        | gravadoras_id | created             | modified            |
++----+-------------+---------------+---------------------+---------------------+
+|  6 | Alicia Keys |             4 | 2019-10-21 17:16:28 | 2019-10-21 17:16:28 |
+| 17 | Anitta      |             4 | 2019-10-21 18:01:43 | 2019-10-21 18:01:43 |
++----+-------------+---------------+---------------------+---------------------+
+2 rows in set (0.008 sec)
+
+5Liste os artistas que fizeram contrato com a gravadora 2.
+MariaDB [exemplo_musica]> select nome from artistas where gravadoras_id = 2;
++----------------------+
+| nome                 |
++----------------------+
+| Mano Lima            |
+| Joca Martins         |
+| José Cláudio Machado |
++----------------------+
+3 rows in set (0.001 sec)
+
+6)mostre os artistas em ordem alfabética.
+MariaDB [exemplo_musica]> select nome from artistas
+    -> order by nome;
++----------------------+
+| nome                 |
++----------------------+
+| Alicia Keys          |
+| Anitta               |
+| Descemer Bueno       |
+| Enrique Iglesias     |
+| Farruko              |
+| Gente de Zona        |
+| Joca Martins         |
+| José Cláudio Machado |
+| Lennox               |
+| Luis Fonsi           |
+| Luiz Marenco         |
+| Maluma               |
+| Mano Lima            |
+| MC Créu              |
+| Mettallica           |
+| Nicky Jam            |
+| Pedro Capó           |
+| Shakira              |
+| Zion                 |
++----------------------+
+19 rows in set (0.000 sec)
